@@ -1,68 +1,123 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #1e3c72, #2a5298);
+    background: radial-gradient(circle at top right, #1e3c72, #2a5298);
     color: #ffffff;
     text-align: center;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 150% 150%;
+    animation: gradientShift 10s ease infinite;
 }
+
+@keyframes gradientShift {
+    0% { background-position: top right; }
+    50% { background-position: bottom left; }
+    100% { background-position: top right; }
+}
+
 .container {
-    max-width: 700px;
+    max-width: 750px;
     margin: 40px auto;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    color: #333;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: #222;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
 header {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(0, 80, 158, 0.3);
 }
+
 h1 {
-    font-size: 2rem;
+    font-size: 2.4rem;
+    color: #003366;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #0047ab;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+h2:hover {
+    color: #ff6347;
+}
+
+p {
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+p:hover {
     color: #003366;
 }
-h2 {
-    font-size: 1.5rem;
-    color: #00509e;
-    margin-top: 15px;
-}
-p {
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.5;
-}
+
 section {
-    margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 1; /* Ensure opacity is 1 from the start */
+    transform: translateY(30px);
+    animation: fadeIn 1s forwards, slideUp 0.8s forwards;
 }
+
+section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+section:hover h2 {
+    color: #0047ab;
+}
+
 .fade-in {
-    opacity: 0;
+    opacity: 1 !important; /* Ensure opacity stays at 1 */
     animation: fadeIn 1s forwards;
 }
+
 .fade-in.delay {
-    animation-delay: 0.3s;
+    animation-delay: 0.4s;
 }
+
 .slide-up {
     animation: slideUp 0.8s forwards;
 }
+
 .slide-up.delay {
-    animation-delay: 0.3s;
+    animation-delay: 0.4s;
 }
-.slide-up.delay-more {
-    animation-delay: 0.6s;
-}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
 @keyframes slideUp {
-    from { opacity: 0; transform: translateY(15px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }

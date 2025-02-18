@@ -1,0 +1,68 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+header {
+    padding-bottom: 10px;
+}
+h1 {
+    font-size: 2rem;
+    color: #003366;
+}
+h2 {
+    font-size: 1.5rem;
+    color: #00509e;
+    margin-top: 15px;
+}
+p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+}
+section {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+.fade-in.delay {
+    animation-delay: 0.3s;
+}
+.slide-up {
+    animation: slideUp 0.8s forwards;
+}
+.slide-up.delay {
+    animation-delay: 0.3s;
+}
+.slide-up.delay-more {
+    animation-delay: 0.6s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
